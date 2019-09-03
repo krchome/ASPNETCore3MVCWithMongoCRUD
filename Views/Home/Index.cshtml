@@ -1,0 +1,29 @@
+﻿@model List<MongoDb.ASP.NETCore3CRUDSample.DataAccess.Models.Customer>
+
+<h1>List of Customers</h1>
+
+<h2>@TempData["Message"]</h2>
+<a asp-controller="Home" asp-action="Insert"> Add New Customer</a>
+
+<hr />
+
+<table border="1" cellpadding="10">
+    
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.CustomerID</td>
+        <td>@item.Name</td>
+        <td>@item.Age</td>
+        <td>@item.Salary</td>
+        <td>
+            <a asp-controller="Home" asp-action="Update" asp-route-id="@item.Id">Edit</a>
+        </td>
+        <td>
+            <a asp-controller="Home" asp-action="ConfirmDelete" asp-route-id="@item.Id">Delete</a>
+        </td>
+    </tr>
+
+    }
+
+</table>
